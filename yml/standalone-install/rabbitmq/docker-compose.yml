@@ -1,0 +1,12 @@
+version: "3.1"
+services:
+  rabbitmq: #节点1主节点 
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:  #端口映射
+      - "5672:5672"
+      - "15672:15672"
+    hostname: rabbitmq  #这个要记住，后面加入集群的时候会用到
+    environment:    #设置环境变量（配置文件参数），虚拟主机，用户名，密码
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=123456
